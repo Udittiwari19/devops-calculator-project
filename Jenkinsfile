@@ -17,7 +17,7 @@ pipeline {
         stage('Docker Build & Tag') {
             steps {
                 sh 'docker build -t scientific-calculator:latest .'
-                sh 'docker tag calculator-app:1.0 udit019/scientific-calculator:latest'
+                sh 'docker tag scientific-calculator:latest udit019/scientific-calculator:latest'
             }
         }
         stage('Docker Push') {
