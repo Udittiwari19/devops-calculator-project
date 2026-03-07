@@ -1,0 +1,24 @@
+- name: Deploy Calculator Container
+  hosts: myhosts
+
+  tasks:
+
+    - name: Pull latest Docker image
+      community.docker.docker_image:
+        name: udit019/calculator-app
+        tag: "1.0"
+        source: pull
+
+    - name: Stop existing container
+      community.docker.docker_container:
+        name: calculator-container
+        state: absent
+
+    - name: Run new container
+      community.docker.docker_container:
+        name: calculator-container
+        image: udit019/calculator-app:1.0
+        state: started
+        recreate: true
+        tty: true
+        interactive: true
