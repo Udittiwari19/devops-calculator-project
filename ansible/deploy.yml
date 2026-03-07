@@ -5,8 +5,8 @@
 
     - name: Pull latest Docker image
       community.docker.docker_image:
-        name: udit019/calculator-app
-        tag: "1.0"
+        name: udit019/scientific-calculator
+        tag: "latest"
         source: pull
 
     - name: Stop existing container
@@ -17,7 +17,7 @@
     - name: Run new container
       community.docker.docker_container:
         name: calculator-container
-        image: udit019/calculator-app:1.0
+        image: udit019/scientific-calculator:latest
         state: started
         recreate: true
         tty: true
