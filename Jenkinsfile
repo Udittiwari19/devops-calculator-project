@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Docker Build & Tag') {
             steps {
-                sh 'docker build -t calculator-app:1.0 .'
-                sh 'docker tag calculator-app:1.0 udit019/calculator-app:1.0'
+                sh 'docker build -t scientific-calculator:latest .'
+                sh 'docker tag calculator-app:1.0 udit019/scientific-calculator:latest'
             }
         }
         stage('Docker Push') {
@@ -28,7 +28,7 @@ pipeline {
                         passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                        docker push udit019/calculator-app:1.0
+                        docker push udit019/scientific-calculator:latest
                     '''
                 }
             }
