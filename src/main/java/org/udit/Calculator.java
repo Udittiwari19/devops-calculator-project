@@ -3,7 +3,7 @@ package org.udit;
 public class Calculator {
 
     public double add(double a, double b) {
-        return a + b;
+        return a + ;
     }
 
     public double subtract(double a, double b) {
